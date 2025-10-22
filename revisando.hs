@@ -8,6 +8,9 @@ fibonacci = auxFibb 0 1
 takeFibonacci:: Int -> [Int]
 takeFibonacci a = take a fibonacci
 
+takeNthFibonacci:: Int -> Int
+takeNthFibonacci a = head (take a fibonacci)
+
 -- primo
 primo:: Int -> Bool
 primo x | x<2 = False
@@ -42,7 +45,9 @@ merge (a:as) (b:bs) | a < b = a:merge as (b:bs)
                     | otherwise = b:merge (a:as) bs
                     
 mergeSort:: [Int] -> [Int]
-mergeSort as = foldr (\x -> merge [x]) [] as
+-- mergeSort as = foldr (\x -> merge [x]) [] as
+mergeSort [] = []
+mergeSort (a:as) = merge [a] (mergeSort as)
 
 -- quicksort
 qsort:: [Int] -> [Int]
