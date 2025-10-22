@@ -6,7 +6,7 @@ insert x (a:as) | x <= a = x:a:as
 
 -- 2. verifica se n é primo 
 ehPrimo:: Int -> Bool
-ehPrimo n | n <2 = False
+ehPrimo n | n < 2 = False
           | otherwise = primoAux n (n-1)
 
 primoAux :: Int -> Int -> Bool
